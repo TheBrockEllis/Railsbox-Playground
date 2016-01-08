@@ -8,8 +8,8 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # Forward the Rails server default port to the host.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # Provider-specific configuration.
   config.vm.provider "virtualbox" do |vb|
@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
     vb.memory = "1024"
   end
 
-  config.vm.synced_folder "../railsbox-app", "/vagrant"
+  config.vm.synced_folder "./", "/vagrant"
   
   # Enable provisioning with a shell script. Install dev stack.
   config.vm.provision :shell, privileged: false, path: "bootstrap.sh"

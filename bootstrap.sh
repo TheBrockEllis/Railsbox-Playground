@@ -58,5 +58,5 @@ sudo -H -u vagrant bash -i -c 'rbenv global 2.2.3'
 
 echo "Install Gems: bundler and rails"
 sudo -H -u vagrant bash -i -c 'gem install bundler --no-ri --no-rdoc'
-sudo -H -u vagrant bash -i -c 'gem install rails'
+sudo -H -u vagrant bash -i -c 'gem install rails --no-ri --no-rdoc'
 sudo -H -u vagrant bash -i -c 'rbenv rehash'
