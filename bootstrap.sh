@@ -26,20 +26,16 @@ sudo dpkg-reconfigure locales
 ## echo "Installing Apache"
 ## sudo apt-get -y install apache2
 
-echo "MyySQL Server"
+echo "MySQL Server"
 # Credentials:
 #   User: root
 #   Password: root
 # If you want a different password, change next two lines.
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 sudo apt-get -y install mysql-server
 sudo apt-get -y install libmysqlclient-dev
-
-echo "Create test database"
-mysql -r root -uroot
-CREATE DATABASE html_development;
-echo "exit"
+sudo apt-get -y install mysql-client 
 
 echo "Rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -56,7 +52,8 @@ sudo -H -u vagrant bash -i -c 'rbenv install 2.2.3'
 echo "Set ruby global version"
 sudo -H -u vagrant bash -i -c 'rbenv global 2.2.3'
 
-echo "Install Gems: bundler and rails"
+echo "Install Gems: mysql, bundler and rails"
 sudo -H -u vagrant bash -i -c 'gem install bundler --no-ri --no-rdoc'
 sudo -H -u vagrant bash -i -c 'gem install rails --no-ri --no-rdoc'
+sudo -H -u vagrant bash -i -c 'gem install mysql2'
 sudo -H -u vagrant bash -i -c 'rbenv rehash'
