@@ -31,11 +31,11 @@ echo "MySQL Server"
 #   User: root
 #   Password: root
 # If you want a different password, change next two lines.
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-#sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 sudo apt-get -y install mysql-server
-sudo apt-get -y install libmysqlclient-dev
 sudo apt-get -y install mysql-client 
+sudo apt-get -y install libmysqlclient-dev
 
 echo "Rbenv"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -55,5 +55,5 @@ sudo -H -u vagrant bash -i -c 'rbenv global 2.2.3'
 echo "Install Gems: mysql, bundler and rails"
 sudo -H -u vagrant bash -i -c 'gem install bundler --no-ri --no-rdoc'
 sudo -H -u vagrant bash -i -c 'gem install rails --no-ri --no-rdoc'
-sudo -H -u vagrant bash -i -c 'gem install mysql2'
+sudo -H -u vagrant bash -i -c 'gem install mysql2 --no-ri --no-rdoc'
 sudo -H -u vagrant bash -i -c 'rbenv rehash'
