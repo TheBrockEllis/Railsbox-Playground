@@ -5,9 +5,10 @@
 - [] `vagrant ssh` to log into the virtual server
 - [] `cd /vagrant` to get to the shared folder 
 - [] run `sudo mysql_install_db`
-- [] `sudo mysql_secure_installation`
+- [] `sudo mysql_secure_installation` with default root password of "root"
 - [] Create new rails app with MySQL driver: `rails new appname -d mysql`
 - [] Edit `config/database.yml` to update MySQL root password
+- [] Add '#\ -b 0.0.0.0' as the first line in config.ru in project root
 - [] Update projects `.gitignore` file to [this](https://gist.github.com/chrishough/6488118)
 - [] `rake db:create` to create databases
 - [] `rails s -b 0.0.0.0` to start rails server
