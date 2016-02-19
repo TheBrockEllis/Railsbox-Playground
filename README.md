@@ -6,12 +6,12 @@
 - [] `cd /vagrant` to get to the shared folder 
 - [] run `sudo mysql_install_db`
 - [] `sudo mysql_secure_installation` with default root password of "root"
-- [] Create new rails app with MySQL driver: `rails new appname -d mysql`
+- [] Create new rails app with MySQL driver: `rails new appname -d mysql .`
 - [] Edit `config/database.yml` to update MySQL root password
-- [] Add '#\ -b 0.0.0.0' as the first line in config.ru in project root
-- [] Update projects `.gitignore` file to [this](https://gist.github.com/chrishough/6488118)
+- [] Add `#\ -b 0.0.0.0` as the first line in config.ru in project root
+- [] Update projects `.gitignore` file to [this](https://github.com/github/gitignore/blob/master/Rails.gitignore)
 - [] `rake db:create` to create databases
-- [] `rails s -b 0.0.0.0` to start rails server
+- [] `rails s` to start rails server
 
 # To Run
 - `cd path_to_my_local_code`
